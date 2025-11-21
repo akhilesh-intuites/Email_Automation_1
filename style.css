@@ -1,0 +1,481 @@
+/* ---------------- Global ---------------- */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #f8fafc;
+  color: #0f172a;
+  zoom: 0.85;
+  padding: 10px 20px;
+  /* -moz-transform: scale(0.85);
+  -moz-transform-origin: top center; */
+}
+
+h1 {
+  width: 100%;
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ---------------- Status ---------------- */
+.status {
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  width: fit-content;
+  max-width: 100%;
+}
+.status.ok {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #16a34a;
+  width: 27%;
+}
+.status.error {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #dc2626;
+}
+
+/* ---------------- Buttons ---------------- */
+.btn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn.primary {
+  background: #16a34a;
+  color: white;
+}
+
+.btn.primary:hover {
+  background: #15803d;
+}
+
+.btn.secondary {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+.btn.secondary:hover {
+  background: #cbd5e1;
+}
+
+.btn.danger {
+  background: #dc2626;
+  color: white;
+}
+.btn.danger:hover {
+  background: #991b1b;
+}
+
+.add-btn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+}
+
+.add-btn.blue-btn {
+  background: #0284c7;
+  color: white;
+}
+.add-btn.blue-btn:hover {
+  background: #0369a1;
+}
+
+.add-btn {
+  background: #16a34a;
+  color: white;
+}
+.add-btn:hover {
+  background: #15803d;
+}
+
+/* ---------------- Top Bar ---------------- */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0 20px;
+  flex-wrap: wrap;
+}
+
+.left-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.right-search {
+  margin-left: auto;
+  max-width: 400px;
+  width: 100%;
+  padding-right: 50px;
+  padding-bottom: 20px;
+}
+
+.search-box {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 14px;
+  background: #fff;
+}
+
+.search-box.small {
+  padding: 8px 10px;
+}
+
+/* ---------------- Candidate Form ---------------- */
+.hidden {
+  display: none !important;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #cbd5e1;
+  margin-top: 10px;
+}
+
+.section-title {
+  font-size: 20px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+/* Form grid */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 12px;
+}
+
+#candidateForm input {
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.form-actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+}
+
+/* ---------------- Table ---------------- */
+.table-wrapper {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 80vh;
+  border: 1px solid #94a3b8;
+  border-radius: 10px;
+  background: white;
+  margin-top: 20px;
+}
+
+table {
+  width: max-content;
+  min-width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  white-space: nowrap;
+}
+
+th {
+  background: #f1f5f9;
+  font-weight: 700;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+tr:hover {
+  background: #f9fafb;
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+}
+/* Expandable Skills Column */
+.skill-text {
+  max-width: 180px;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.skill-text.expanded {
+  white-space: normal !important;
+  max-width: 500px;
+}
+
+.more-less-btn {
+  color: #0284c7;
+  cursor: pointer;
+  font-size: 13px;
+  margin-left: 6px;
+  text-decoration: underline;
+}
+.more-less-btn:hover {
+  color: #0369a1;
+}
+
+/* ---------------- Modal (Delete + Add/Edit) ---------------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 9999;
+}
+
+.modal-content {
+  background: white;
+  padding: 22px;
+  border-radius: 10px;
+  width: min(500px, 90%);
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content.small {
+  width: min(360px, 90%);
+}
+
+.modal-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+/* Fix Add Title modal input width */
+#modalBack .modal-content .row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+#modalBack .modal-content .row label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+}
+
+#modalBack .modal-content .row input {
+  width: 80%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+#modalBack .modal-content .row input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.15);
+}
+
+/* ---------------- TITLE MAP POPUP ---------------- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup {
+  width: 90%;
+  max-width: 900px;
+  max-height: 90vh;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  overflow-y: auto;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.popup-header {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.title-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Title Card */
+.tile {
+  background: #f8fafc;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.title-name {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.itemsRow {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  background: #e2e8f0;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.chip button {
+  padding: 0 4px;
+  background: none;
+  border: none;
+  color: #b91c1c;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+Modal fields inside Title Map .modal-row {
+  margin-bottom: 12px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.modal-row label {
+  min-width: 110px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.modal-row .input,
+.modal-row input,
+.modal-row select {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 720px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .top-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .left-buttons {
+    width: 100%;
+    justify-content: stretch;
+  }
+  .right-search {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.bachelor-text {
+  max-width: 180px;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bachelor-text.expanded {
+  white-space: normal !important;
+  max-width: 500px;
+}
+/* --- Edit Title Modal Styling --- */
+
+#editBack .modal-content {
+  width: 420px !important;
+  max-width: 90%;
+  padding: 28px 32px;
+  border-radius: 14px;
+  animation: popupFade 0.25s ease-out;
+}
+
+#editBack .modal-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+#editBack .modal-row label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+}
+
+#editBack .modal-row input.modal-input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  transition: 0.25s;
+  width: 80%;
+}
+
+#editBack .modal-row input.modal-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.15);
+  outline: none;
+}
